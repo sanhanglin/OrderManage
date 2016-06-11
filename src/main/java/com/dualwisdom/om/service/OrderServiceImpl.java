@@ -4,19 +4,19 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.dualwisdom.om.dao.OrderMainDao;
+import com.dualwisdom.om.dao.OrderMainMapper;
 import com.dualwisdom.om.pojo.OrderMain;
 
 @Service("orderService")
 public class OrderServiceImpl implements OrderService {
 
 	@Resource
-	private OrderMainDao orderMaindao;
+	private OrderMainMapper orderMaindao;
 	
 	@Override
 	public OrderMain getOrderMainByKey(String orderKey) {
 		
-		return orderMaindao.get(orderKey);
+		return orderMaindao.selectByPrimaryKey(orderKey);
 	}
 
 }

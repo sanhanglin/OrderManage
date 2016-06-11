@@ -30,11 +30,14 @@ sourceSets {
     java {
       srcDirs = ["src/main/java"]
     }
+    resources {
+      srcDirs = ["src/main/resources"]
+    }
   }
   main.compileClasspath += configurations.provided
   test.compileClasspath += configurations.provided
   test.runtimeClasspath += configurations.provided
-}  
+}
 
 [compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
 
@@ -77,7 +80,11 @@ dependencies {
   compile group: 'postgresql', name: 'postgresql', version: '9.1-901-1.jdbc4'
   
   // c3p0 db connection pool
-  compile group: 'com.mchange', name: 'c3p0', version: '0.9.5.2'
+  // compile group: 'com.mchange', name: 'c3p0', version: '0.9.5.2'
+  
+  // alibaba druid connection pool
+  compile group: 'com.alibaba', name: 'druid', version: '1.0.20'
+  
   
   // JUnit
   testCompile 'junit:junit:4.12'
